@@ -1,0 +1,118 @@
+// app global css in SCSS form
+// app global css in SCSS form
+
+/* overpass-300 - latin */
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 300;
+  src: url('./fonts/overpass/overpass-v4-latin-300.eot'); /* IE9 Compat Modes */
+  src: local('Overpass Light'), local('Overpass-Light'),
+       url('./fonts/overpass/overpass-v4-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./fonts/overpass/overpass-v4-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./fonts/overpass/overpass-v4-latin-300.woff') format('woff'), /* Modern Browsers */
+       url('./fonts/overpass/overpass-v4-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./fonts/overpass/overpass-v4-latin-300.svg#Overpass') format('svg'); /* Legacy iOS */
+}
+/* overpass-regular - latin */
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/overpass/overpass-v4-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Overpass Regular'), local('Overpass-Regular'),
+       url('./fonts/overpass/overpass-v4-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./fonts/overpass/overpass-v4-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./fonts/overpass/overpass-v4-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('./fonts/overpass/overpass-v4-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./fonts/overpass/overpass-v4-latin-regular.svg#Overpass') format('svg'); /* Legacy iOS */
+}
+/* overpass-medium - latin - same as regular*/
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./fonts/overpass/overpass-v4-latin-600.eot'); /* IE9 Compat Modes */
+  src: local('Overpass SemiBold'), local('Overpass-SemiBold'),
+       url('./fonts/overpass/overpass-v4-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./fonts/overpass/overpass-v4-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./fonts/overpass/overpass-v4-latin-600.woff') format('woff'), /* Modern Browsers */
+       url('./fonts/overpass/overpass-v4-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./fonts/overpass/overpass-v4-latin-600.svg#Overpass') format('svg'); /* Legacy iOS */
+}
+
+/* overpass-600 - latin */
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./fonts/overpass/overpass-v4-latin-600.eot'); /* IE9 Compat Modes */
+  src: local('Overpass SemiBold'), local('Overpass-SemiBold'),
+       url('./fonts/overpass/overpass-v4-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./fonts/overpass/overpass-v4-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./fonts/overpass/overpass-v4-latin-600.woff') format('woff'), /* Modern Browsers */
+       url('./fonts/overpass/overpass-v4-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./fonts/overpass/overpass-v4-latin-600.svg#Overpass') format('svg'); /* Legacy iOS */
+}
+/* overpass-700 - latin */
+@font-face {
+  font-family: 'Overpass';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./fonts/overpass/overpass-v4-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Overpass Bold'), local('Overpass-Bold'),
+       url('./fonts/overpass/overpass-v4-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./fonts/overpass/overpass-v4-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./fonts/overpass/overpass-v4-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('./fonts/overpass/overpass-v4-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./fonts/overpass/overpass-v4-latin-700.svg#Overpass') format('svg'); /* Legacy iOS */
+}
+
+/* amiko-regular - latin */
+@font-face {
+  font-family: 'Amiko';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/amiko/amiko-v4-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Amiko'), local('Amiko-Regular'),
+       url('./fonts/amiko/amiko-v4-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./fonts/amiko/amiko-v4-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./fonts/amiko/amiko-v4-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('./fonts/amiko/amiko-v4-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./fonts/amiko/amiko-v4-latin-regular.svg#Amiko') format('svg'); /* Legacy iOS */
+}
+/* amiko-600 - latin */
+@font-face {
+  font-family: 'Amiko';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./fonts/amiko/amiko-v4-latin-600.eot'); /* IE9 Compat Modes */
+  src: local('Amiko SemiBold'), local('Amiko-SemiBold'),
+       url('./fonts/amiko/amiko-v4-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./fonts/amiko/amiko-v4-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./fonts/amiko/amiko-v4-latin-600.woff') format('woff'), /* Modern Browsers */
+       url('./fonts/amiko/amiko-v4-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./fonts/amiko/amiko-v4-latin-600.svg#Amiko') format('svg'); /* Legacy iOS */
+}
+/* amiko-700 - latin */
+@font-face {
+  font-family: 'Amiko';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./fonts/amiko/amiko-v4-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Amiko Bold'), local('Amiko-Bold'),
+       url('./fonts/amiko/amiko-v4-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./fonts/amiko/amiko-v4-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./fonts/amiko/amiko-v4-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('./fonts/amiko/amiko-v4-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./fonts/amiko/amiko-v4-latin-700.svg#Amiko') format('svg'); /* Legacy iOS */
+}
+
+.dark-background {
+  background: $dark-page;
+}
+
+// Arcadis Gen style for titles
+.text-h1 .text-h2 .text-h3 .text-h4 .text-h5 .text-h6 {
+  font-family: 'Amiko', '-apple-system', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
