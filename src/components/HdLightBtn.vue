@@ -32,25 +32,25 @@
               round
               size="xs"
               style="background: #ff942b;"
-              @click="sendColorTempCmd(85)"
+              @click="[sendColorTempCmd(85), sendCmd(57)]"
             />
             <q-btn
               round
               size="xs"
               style="background: #ffad66;"
-              @click="sendColorTempCmd(56)"
+              @click="[sendColorTempCmd(56), sendCmd(100)]"
             />
             <q-btn
               round
               size="xs"
               style="background: #ffd5b3;"
-              @click="sendColorTempCmd(23)"
+              @click="[sendColorTempCmd(23), sendCmd(100)]"
             />
             <q-btn
               round
               size="xs"
               style="background: #fffdf8;"
-              @click="sendColorTempCmd(1)"
+              @click="[sendColorTempCmd(1), sendCmd(100)]"
             />
           </div>
           <div
@@ -90,25 +90,25 @@
               round
               size="xs"
               style="background: #ff942b;"
-              @click="sendCmd('29,80,'+state.split(',')[2])"
+              @click="sendCmd('29,80,57')"
             />
             <q-btn
               round
               size="xs"
               style="background: #ffad66;"
-              @click="sendCmd('30,60,'+state.split(',')[2])"
+              @click="sendCmd('30,60,100')"
             />
             <q-btn
               round
               size="xs"
               style="background: #ffd5b3;"
-              @click="sendCmd('23,30,'+state.split(',')[2])"
+              @click="sendCmd('23,30,100')"
             />
             <q-btn
               round
               size="xs"
               style="background: #fffdf8;"
-              @click="sendCmd('19,1,'+state.split(',')[2])"
+              @click="sendCmd('19,1,100')"
             />
           </div>
           <q-slider

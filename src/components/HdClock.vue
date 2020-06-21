@@ -40,7 +40,7 @@ export default {
     seconds () { return padZero(this.date.getSeconds()) },
     minutes () { return padZero(this.date.getMinutes()) },
     hour () { return padZero(this.date.getHours()) },
-    weekDay () { return new Intl.DateTimeFormat('nl-BE', { weekday: 'long' }).format(this.date.getDay()) },
+    weekDay () { return new Intl.DateTimeFormat('nl-BE', { weekday: 'long' }).format(this.date) },
     monthDay () { return this.date.getDate() },
     month () { return this.date.getMonth() + 1 }
   }

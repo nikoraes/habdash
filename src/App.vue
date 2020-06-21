@@ -10,16 +10,13 @@ export default {
 
   data () {
     return {
-      reconnectIntervalId: null,
-      reloadIntervalId: null
+      reconnectIntervalId: null
     }
   },
 
   mounted () {
     this.reconnect()
-    this.reloadIntervalId = setInterval(() => {
-      this.$store.dispatch('items/reload')
-    }, 30000)
+    setTimeout(() => this.$store.dispatch('items/reload'), 30000)
   },
 
   watch: {

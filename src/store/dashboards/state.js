@@ -12,7 +12,7 @@ export default {
       cards: [
         {
           id: 1,
-          position: { x: 0, y: 0, w: 2, h: 15 },
+          position: { x: 0, y: 0, w: 2, h: 16 },
           type: 'HdCard',
           config: {
             title: {
@@ -53,7 +53,7 @@ export default {
         },
         {
           id: 6,
-          position: { x: 2, y: 6, w: 2, h: 9 },
+          position: { x: 2, y: 6, w: 2, h: 10 },
           type: 'HdCard',
           config: {
             title: {
@@ -85,7 +85,7 @@ export default {
         },
         {
           id: 3,
-          position: { x: 4, y: 0, w: 4, h: 8 },
+          position: { x: 4, y: 0, w: 4, h: 11 },
           type: 'HdWeatherCard',
           config: {
             currentLabel: 'Nu',
@@ -102,11 +102,46 @@ export default {
             forecastTomorrowIconId: { item: 'Weather_ForecastTomorrowIconId' },
             forecastTomorrowMinTemperature: { item: 'Weather_ForecastTomorrowMinTemperature', unit: '°C' },
             forecastTomorrowMaxTemperature: { item: 'Weather_ForecastTomorrowMaxTemperature', unit: '°C' },
-            forecastDay2Label: 'Overmorgen',
+            // forecastDay2Label: 'Overmorgen',
+            forecastDay2Date: { item: 'Weather_ForecastDay2TimeStamp' },
             forecastDay2Condition: { item: 'Weather_ForecastDay2Condition' },
             forecastDay2IconId: { item: 'Weather_ForecastDay2IconId' },
             forecastDay2MinTemperature: { item: 'Weather_ForecastDay2MinTemperature', unit: '°C' },
-            forecastDay2MaxTemperature: { item: 'Weather_ForecastDay2MaxTemperature', unit: '°C' }
+            forecastDay2MaxTemperature: { item: 'Weather_ForecastDay2MaxTemperature', unit: '°C' },
+            forecastDay3Date: { item: 'Weather_ForecastDay3TimeStamp' },
+            forecastDay3Condition: { item: 'Weather_ForecastDay3Condition' },
+            forecastDay3IconId: { item: 'Weather_ForecastDay3IconId' },
+            forecastDay3MinTemperature: { item: 'Weather_ForecastDay3MinTemperature', unit: '°C' },
+            forecastDay3MaxTemperature: { item: 'Weather_ForecastDay3MaxTemperature', unit: '°C' },
+            rainForecast: {
+              dateItem: 'Weather_RainForecastActualDatetime',
+              forecastItems: [
+                { minutes: 0, item: 'Weather_RainForecastForecast0' },
+                { minutes: 5, item: 'Weather_RainForecastForecast5' },
+                { minutes: 10, item: 'Weather_RainForecastForecast10' },
+                { minutes: 15, item: 'Weather_RainForecastForecast15' },
+                { minutes: 20, item: 'Weather_RainForecastForecast20' },
+                { minutes: 25, item: 'Weather_RainForecastForecast25' },
+                { minutes: 30, item: 'Weather_RainForecastForecast30' },
+                { minutes: 35, item: 'Weather_RainForecastForecast35' },
+                { minutes: 40, item: 'Weather_RainForecastForecast40' },
+                { minutes: 45, item: 'Weather_RainForecastForecast45' },
+                { minutes: 50, item: 'Weather_RainForecastForecast50' },
+                { minutes: 55, item: 'Weather_RainForecastForecast55' },
+                { minutes: 60, item: 'Weather_RainForecastForecast60' },
+                { minutes: 65, item: 'Weather_RainForecastForecast65' },
+                { minutes: 70, item: 'Weather_RainForecastForecast70' },
+                { minutes: 75, item: 'Weather_RainForecastForecast75' },
+                { minutes: 80, item: 'Weather_RainForecastForecast80' },
+                { minutes: 85, item: 'Weather_RainForecastForecast85' },
+                { minutes: 90, item: 'Weather_RainForecastForecast90' },
+                { minutes: 95, item: 'Weather_RainForecastForecast95' },
+                { minutes: 100, item: 'Weather_RainForecastForecast100' },
+                { minutes: 105, item: 'Weather_RainForecastForecast105' },
+                { minutes: 110, item: 'Weather_RainForecastForecast110' },
+                { minutes: 115, item: 'Weather_RainForecastForecast115' }
+              ]
+            }
           }
         },
         {
@@ -147,7 +182,7 @@ export default {
         },
         {
           id: 7,
-          position: { x: 8, y: 0, w: 2, h: 15 },
+          position: { x: 8, y: 0, w: 2, h: 16 },
           type: 'HdMusicCard',
           config: {
             sources: ['ChromecastGroup_Living', 'ChromecastHEarGo', 'ChromecastHTZF9'],
@@ -163,21 +198,21 @@ export default {
         },
         {
           id: 9,
-          position: { x: 4, y: 8, w: 2, h: 3 },
+          position: { x: 4, y: 11, w: 2, h: 5 },
           type: 'HdCard',
           widgets: [
             {
               type: 'HdState',
               config: {
                 label: 'PV',
-                main: { item: 'PV_Power_AC1', unit: 'W' }
+                main: { item: 'PV_Power_AC1', unit: 'W', includeChart: true, chartColor: '#f8da40' }
               }
             }
           ]
         },
         {
           id: 10,
-          position: { x: 4, y: 11, w: 2, h: 4 },
+          position: { x: 6, y: 11, w: 2, h: 5 },
           type: 'HdClock'
         }
       ]

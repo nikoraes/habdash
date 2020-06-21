@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="item"
-    class="column items-center q-gutter-y-sm q-pa-sm"
+    class="column items-center q-gutter-y-sm"
     style="width: 115px;"
   >
     <div class="text-caption text-center">{{config.label || item.label}}</div>

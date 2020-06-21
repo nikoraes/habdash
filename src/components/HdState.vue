@@ -38,20 +38,96 @@
           class="q-mr-xs"
         />{{sub2State}}{{config.sub2 && config.sub2.unit}}</div>
     </div>
+    <div
+      class="full-width"
+      style="margin-top: -64px; margin-bottom: -36px; min-width: 200px;"
+    >
+      <v-chart
+        ref="chart"
+        :options="chartOptions"
+        autoresize
+        class="full-width"
+        style="height: 150px;"
+      />
+    </div>
   </div>
 
 </template>
 
 <script>
+import axios from 'axios'
+
+import ECharts from 'vue-echarts'
+import 'echarts/lib/chart/line'
+
 export default {
 
   props: ['config'],
+
+  components: {
+    'v-chart': ECharts
+  },
+
+  data () {
+    return {
+      mainChartData: []
+    }
+  },
+
+  mounted () {
+    if (this.config.main.includeChart) {
+      this.getMainPersistenceData()
+    }
+  },
 
   computed: {
     mainItem () { return this.$store.getters['items/name'](this.config.main.item) },
     mainState () { return this.$store.getters['items/state'](this.config.main.item, true) },
     sub1State () { return this.config.sub1 && this.$store.getters['items/state'](this.config.sub1.item, true) },
-    sub2State () { return this.config.sub2 && this.$store.getters['items/state'](this.config.sub2.item, true) }
+    sub2State () { return this.config.sub2 && this.$store.getters['items/state'](this.config.sub2.item, true) },
+
+    chartOptions () {
+      return {
+        xAxis: {
+          type: 'time',
+          show: false,
+          axisLine: false,
+          axisTick: false,
+          splitLine: false,
+          axisLabel: {
+            formatter: val => {
+              const date = new Date(val)
+              return `${date.getHours()}:${date.getMinutes() < 10 ? '0' : ''}${date.getMinutes()}`
+            }
+          }
+        },
+        yAxis: [
+          {
+            type: 'value',
+            show: false
+          }
+        ],
+        textStyle: {
+          fontFamily: "'Overpass' , '-apple-system', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+          color: '#9e9e9e'
+        },
+        series: [{
+          name: 'main',
+          type: 'line',
+          showSymbol: false,
+          lineStyle: { color: this.config.main.chartColor || '#f8da40' },
+          data: this.mainChartData
+        }]
+      }
+    }
+  },
+
+  methods: {
+    async getMainPersistenceData () {
+      const response = await axios.get('/rest/persistence/items/' + this.config.main.item)
+      this.mainChartData = response.data.data.map(d => { return [new Date(d.time), parseFloat(d.state)] })
+      setTimeout(this.getMainPersistenceData(), 600000)
+    }
   }
 
 }

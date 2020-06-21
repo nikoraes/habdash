@@ -24,9 +24,24 @@
         </div>
       </div>
       <div class="text-caption text-grey text-center">{{currentCondition}}</div>
+
+    </div>
+
+    <div
+      class="col-9"
+      style="margin-top: -32px;"
+    >
+      <v-chart
+        ref="chart"
+        :options="chartOptions"
+        autoresize
+        class="full-width"
+        style="height: 100px;"
+      />
     </div>
 
     <div class="row q-gutter-x-sm">
+
       <div class="column items-center q-gutter-y-sm q-pa-sm">
         <div class="text-caption text-center">{{config.forecastTodayLabel}}</div>
         <q-icon
@@ -64,7 +79,7 @@
         v-if="forecastDay2IconId && forecastDay2Condition"
         class="column items-center q-gutter-y-sm q-pa-sm"
       >
-        <div class="text-caption text-center">{{config.forecastDay2Label}}</div>
+        <div class="text-caption text-center">{{forecastDay2Label || config.forecastDay2Label}}</div>
         <q-icon
           :name="'img:statics/weather/'+icon[forecastDay2IconId]"
           size="48px"
@@ -77,14 +92,43 @@
           <div class="text-caption text-grey text-center">{{forecastDay2Condition}}</div>
         </div>
       </div>
+
+      <div
+        v-if="forecastDay3IconId && forecastDay3Condition"
+        class="column items-center q-gutter-y-sm q-pa-sm"
+      >
+        <div class="text-caption text-center">{{forecastDay3Label}}</div>
+        <q-icon
+          :name="'img:statics/weather/'+icon[forecastDay3IconId]"
+          size="48px"
+        />
+        <div class="column">
+          <div
+            v-if="forecastDay3MaxTemperature && forecastDay3MinTemperature"
+            class="text-caption text-grey text-center"
+          >{{forecastDay3MaxTemperature.split('.')[0]}}/{{forecastDay3MinTemperature.split('.')[0]}}{{config.forecastDay3MinTemperature.unit}}</div>
+          <div class="text-caption text-grey text-center">{{forecastDay3Condition}}</div>
+        </div>
+      </div>
+
     </div>
+
   </div>
 </template>
 
 <script>
+import moment from 'moment'
+
+import ECharts from 'vue-echarts'
+import 'echarts/lib/chart/line'
+
 export default {
 
   props: ['card'],
+
+  components: {
+    'v-chart': ECharts
+  },
 
   data () {
     return {
@@ -126,10 +170,58 @@ export default {
     forecastTomorrowIconId () { return this.$store.getters['items/state'](this.config.forecastTomorrowIconId.item, true) },
     forecastTomorrowMinTemperature () { return this.$store.getters['items/state'](this.config.forecastTomorrowMinTemperature.item, true) },
     forecastTomorrowMaxTemperature () { return this.$store.getters['items/state'](this.config.forecastTomorrowMaxTemperature.item, true) },
+    forecastDay2Label () { return this.config.forecastDay2Date && new Intl.DateTimeFormat('nl-BE', { weekday: 'long' }).format(new Date(this.$store.getters['items/state'](this.config.forecastDay2Date.item, true))) },
     forecastDay2Condition () { return this.$store.getters['items/state'](this.config.forecastDay2Condition.item, true) },
     forecastDay2IconId () { return this.$store.getters['items/state'](this.config.forecastDay2IconId.item, true) },
     forecastDay2MinTemperature () { return this.$store.getters['items/state'](this.config.forecastDay2MinTemperature.item, true) },
-    forecastDay2MaxTemperature () { return this.$store.getters['items/state'](this.config.forecastDay2MaxTemperature.item, true) }
+    forecastDay2MaxTemperature () { return this.$store.getters['items/state'](this.config.forecastDay2MaxTemperature.item, true) },
+    forecastDay3Label () { return this.config.forecastDay3Date && new Intl.DateTimeFormat('nl-BE', { weekday: 'long' }).format(new Date(this.$store.getters['items/state'](this.config.forecastDay3Date.item, true))) },
+    forecastDay3Condition () { return this.$store.getters['items/state'](this.config.forecastDay3Condition.item, true) },
+    forecastDay3IconId () { return this.$store.getters['items/state'](this.config.forecastDay3IconId.item, true) },
+    forecastDay3MinTemperature () { return this.$store.getters['items/state'](this.config.forecastDay3MinTemperature.item, true) },
+    forecastDay3MaxTemperature () { return this.$store.getters['items/state'](this.config.forecastDay3MaxTemperature.item, true) },
+
+    rainForecastDate () { return this.config.rainForecast && new Date(this.$store.getters['items/state'](this.config.rainForecast.dateItem, true)) },
+    rainForecastData () {
+      return this.config.rainForecast && this.config.rainForecast.forecastItems && this.config.rainForecast.forecastItems.map(fi => {
+        return [moment(this.rainForecastDate).add(fi.minutes, 'm').toDate(), this.$store.getters['items/state'](fi.item, true)]
+      })
+    },
+
+    chartOptions () {
+      return {
+        xAxis: {
+          type: 'time',
+          // show: false,
+          axisLine: false,
+          axisTick: false,
+          splitLine: false,
+          axisLabel: {
+            formatter: val => {
+              const date = new Date(val)
+              return `${date.getHours()}:${date.getMinutes() < 10 ? '0' : ''}${date.getMinutes()}`
+            }
+          }
+        },
+        yAxis: [
+          {
+            type: 'value',
+            show: false
+          }
+        ],
+        textStyle: {
+          fontFamily: "'Overpass' , '-apple-system', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+          color: '#9e9e9e'
+        },
+        series: [{
+          name: 'rain',
+          type: 'line',
+          showSymbol: false,
+          lineStyle: { color: '#00a9e4' },
+          data: this.rainForecastData
+        }]
+      }
+    }
   }
 
 }

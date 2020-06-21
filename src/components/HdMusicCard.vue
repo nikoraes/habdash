@@ -31,8 +31,8 @@
       />
     </q-card-section>
 
-    <q-card-section class="col items-center column q-mt-none q-pt-none">
-      <div class="row justify-evenly items-center">
+    <q-card-section class="col items-center column justify-evenly q-mt-none q-pt-none">
+      <div class="row justify-evenly items-center q-gutter-y-sm">
         <hd-knob :config="{ item: selectedSource+'_Volume', icon: 'mdi-volume-high', label: ' ' }" />
         <hd-btn-group :config="{item: 'ChromecastGroup_Living_Control', label: ' ', commands: [{ value: 'PAUSE', icon: 'mdi-pause' }, { value: 'PLAY', icon: 'mdi-play-outline' }]}" />
       </div>

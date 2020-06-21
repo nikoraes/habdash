@@ -17,6 +17,7 @@ export const initialLoad = (context) => {
     axios.get('/rest/items').then((resp) => {
       context.commit('updateAll', resp.data)
       context.commit('setReady')
+      // setTimeout(context.dispatch('reload'), 30000)
       resolve()
     }).catch(err => {
       reject(err)
@@ -31,6 +32,7 @@ export const reload = (context) => {
     axios.get('/rest/items').then((resp) => {
       context.commit('updateAll', resp.data)
       context.commit('setReady')
+      setTimeout(() => context.dispatch('reload'), 30000)
       resolve()
     }).catch(err => {
       reject(err)
