@@ -56,9 +56,9 @@ export default {
           position: { x: 2, y: 6, w: 2, h: 10 },
           type: 'HdCard',
           config: {
-            title: {
+            /* title: {
               main: 'Overige'
-            },
+            }, */
             leftBar: {
               color: '#ffb46b',
               items: ['Light_GF_Garage_Ceiling', 'Light_GF_Spandrel_Wall', 'Light_GF_Entrance_Ceiling', 'Light_FF_Hall_Ceiling']

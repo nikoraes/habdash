@@ -40,7 +40,7 @@
       />
     </div>
 
-    <div class="row q-gutter-x-sm">
+    <div class="row q-col-gutter-x-sm">
 
       <div class="col-3 column items-center q-gutter-y-sm q-pa-sm">
         <div class="text-caption text-center">{{config.forecastTodayLabel}}</div>

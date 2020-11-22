@@ -6,6 +6,7 @@
       :mini="miniState"
       :breakpoint="500"
       content-class="bg-grey-10"
+      class="gt-xs"
     >
       <q-scroll-area class="fit">
         <q-list padding>
@@ -20,7 +21,7 @@
               avatar
               :class="current === l.id ? 'text-primary' : ''"
             >
-              <q-icon :name=l.icon />
+              <q-icon :name="l.icon" />
             </q-item-section>
             <q-item-section>
               {{l.label}}
@@ -49,6 +50,27 @@
     <q-page-container>
       <router-view />
     </q-page-container>
+
+    <q-footer class="lt-sm">
+      <q-toolbar class="bg-black text-white">
+        <q-tabs
+          v-model="current"
+          narrow-indicator
+          dense
+          no-caps
+          class="full-width"
+          align="justify"
+        >
+          <q-tab
+            v-for="l in links"
+            :key="l.id"
+            :icon="l.icon"
+            :name="l.id"
+          />
+        </q-tabs>
+      </q-toolbar>
+    </q-footer>
+
   </q-layout>
 </template>
 
