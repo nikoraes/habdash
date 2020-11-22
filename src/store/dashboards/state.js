@@ -79,6 +79,10 @@ export default {
             },
             {
               type: 'HdLightBtn',
+              config: { item: 'Light_GF_Toilet_Ceiling' }
+            },
+            {
+              type: 'HdLightBtn',
               config: { item: 'Light_FF_Hall_Ceiling' }
             }
           ]
@@ -188,8 +192,9 @@ export default {
             sources: ['ChromecastGroup_Living', 'ChromecastHEarGo', 'ChromecastHTZF9'],
             stations: [
               { value: 'http://icecast.vrtcdn.be/stubru-high.mp3', label: 'Stu Bru', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/VRT_StuBru_logo.svg/1200px-VRT_StuBru_logo.svg.png' },
+              { value: 'http://icecast.vrtcdn.be/stubru_untz-high.mp3', label: 'Untz', img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/VRT_StuBru_logo.svg/1200px-VRT_StuBru_logo.svg.png' },
               { value: 'http://ibizaglobalradio.streaming-pro.com:8024/;?type=http&nocache=25542', label: 'Ibiza Global', img: 'https://cdn-radiotime-logos.tunein.com/s54700g.png' },
-              { value: 'http://streamingp.shoutcast.com/TomorrowlandOneWorldRadio', label: 'TML OWR', img: 'https://lh3.googleusercontent.com/iq5zguiJhKqspOs7XOmhhGW0ALhmM58eC9PAXI0g3-cOCwDip1XWquWAVkyoJkNRviA' },
+              // { value: 'http://streamingp.shoutcast.com/TomorrowlandOneWorldRadio', label: 'TML OWR', img: 'https://lh3.googleusercontent.com/iq5zguiJhKqspOs7XOmhhGW0ALhmM58eC9PAXI0g3-cOCwDip1XWquWAVkyoJkNRviA' },
               { value: 'http://lb.zenfm.be/zenfm.mp3', label: 'ZenFM', img: 'https://mytuner.global.ssl.fastly.net/media/tvos_radios/sxScAvg2BB.png' },
               { value: 'http://lb.topradio.be/topradio.mp3', label: 'TOPradio', img: 'https://www.topradio.be/assets/page/img/cover.jpg' },
               { value: 'http://icecast.vrtcdn.be/mnm-high.mp3', label: 'MNM', img: 'https://pbs.twimg.com/profile_images/1003250095083741185/E6KDAehu_400x400.jpg' }

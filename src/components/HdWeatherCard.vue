@@ -42,7 +42,7 @@
 
     <div class="row q-gutter-x-sm">
 
-      <div class="column items-center q-gutter-y-sm q-pa-sm">
+      <div class="col-3 column items-center q-gutter-y-sm q-pa-sm">
         <div class="text-caption text-center">{{config.forecastTodayLabel}}</div>
         <q-icon
           :name="'img:statics/weather/'+icon[forecastTodayIconId]"
@@ -59,7 +59,7 @@
 
       <div
         v-if="forecastTomorrowIconId && forecastTomorrowCondition"
-        class="column items-center q-gutter-y-sm q-pa-sm"
+        class="col-3 column items-center q-gutter-y-sm q-pa-sm"
       >
         <div class="text-caption text-center">{{config.forecastTomorrowLabel}}</div>
         <q-icon
@@ -77,7 +77,7 @@
 
       <div
         v-if="forecastDay2IconId && forecastDay2Condition"
-        class="column items-center q-gutter-y-sm q-pa-sm"
+        class="col-3 column items-center q-gutter-y-sm q-pa-sm"
       >
         <div class="text-caption text-center">{{forecastDay2Label || config.forecastDay2Label}}</div>
         <q-icon
@@ -95,7 +95,7 @@
 
       <div
         v-if="forecastDay3IconId && forecastDay3Condition"
-        class="column items-center q-gutter-y-sm q-pa-sm"
+        class="col-3 column items-center q-gutter-y-sm q-pa-sm"
       >
         <div class="text-caption text-center">{{forecastDay3Label}}</div>
         <q-icon
