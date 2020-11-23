@@ -5,6 +5,7 @@
       :src="image"
       :ratio="16/9"
       basic
+      contain
       class="full-width"
     />
     <q-card-section class="q-pb-none">
@@ -54,6 +55,15 @@ export default {
   data () {
     return {
       selectedSource: this.card.config.sources[0]
+    }
+  },
+
+  mounted () {
+    for (const source of this.sourceSelectOptions) {
+      if (this.$store.getters['items/state'](source.value + '_Idling') !== 'ON') {
+        this.selectedSource = source.value
+        break
+      }
     }
   },
 
